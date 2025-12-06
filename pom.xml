@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>springboot-ai-rag</artifactId>
+	<artifactId>springboot-ai-rag-pdf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-ai-rag</name>
+	<name>springboot-ai-rag-pdf</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -67,6 +67,12 @@
 	    <dependency>
 	        <groupId>org.springframework.ai</groupId>
 	        <artifactId>spring-ai-advisors-vector-store</artifactId>
+	    </dependency>
+	    
+	    <!-- 新增 PDF Reader -->
+	    <dependency>
+	        <groupId>org.springframework.ai</groupId>
+	        <artifactId>spring-ai-pdf-document-reader</artifactId>
 	    </dependency>
 	    
 	</dependencies>

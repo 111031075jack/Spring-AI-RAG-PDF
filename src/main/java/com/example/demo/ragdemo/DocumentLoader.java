@@ -1,7 +1,6 @@
 package com.example.demo.ragdemo;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -25,16 +24,20 @@ public class DocumentLoader implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// 書本(PDF) 放在 src/main/resouce/docs
 		List<Document> pdfDocs = Stream.of(
-				new PagePdfDocumentReader(new ClassPathResource("docs/eat.pdf")).read(),   // List<Documents>
-				new PagePdfDocumentReader(new ClassPathResource("docs/java.pdf")).read(),  // List<Documents>
-				new PagePdfDocumentReader(new ClassPathResource("docs/spring.pdf")).read(),// List<Documents>
-				new PagePdfDocumentReader(new ClassPathResource("docs/taiwan.pdf")).read(),// List<Documents>
-				new PagePdfDocumentReader(new ClassPathResource("docs/teacher.pdf")).read()// List<Documents>
+				//new PagePdfDocumentReader(new ClassPathResource("docs/eat.pdf")).read(),   // List<Documents>
+				//new PagePdfDocumentReader(new ClassPathResource("docs/java.pdf")).read(),  // List<Documents>
+				//new PagePdfDocumentReader(new ClassPathResource("docs/spring.pdf")).read(),// List<Documents>
+				//new PagePdfDocumentReader(new ClassPathResource("docs/taiwan.pdf")).read(),// List<Documents>
+				//new PagePdfDocumentReader(new ClassPathResource("docs/teacher.pdf")).read(),// List<Documents>
+				//new PagePdfDocumentReader(new ClassPathResource("docs/常存感恩的心.pdf")).read(),// List<Documents>
+				new PagePdfDocumentReader(new ClassPathResource("docs/阿哲的第一次 0050 波段交易.pdf")).read()// List<Documents>
+				
+				// new PagePdfDocumentReader(new ClassPathResource("docs/03_2025 JavaDay_劉得民老師.pdf")).read()// List<Documents>
 			).flatMap(List :: stream) // List<List<Documents>> 變成 List<Documents> -> List<Documents> -> List<Documents>...
 			 .collect(Collectors.toList());
 				
 		vectorStore.add(pdfDocs);
-		System.out.println("PDF 文檔已成功載入向量資料庫, 文檔數量: " + pdfDocs.size());
+		System.out.println("PDF 文檔已成功載入向量資料庫, 給 RAG 讀得 Document 數量: " + pdfDocs.size());
 		
 	}
 	

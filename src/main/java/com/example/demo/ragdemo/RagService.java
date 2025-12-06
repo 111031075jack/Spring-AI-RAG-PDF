@@ -26,7 +26,7 @@ public class RagService {
 	public String askQuestion(String question) {
 		SearchRequest request = SearchRequest.builder()
 				.query(question)
-				.topK(3)
+				.topK(7)
 				.build();
 		
 		List<Document> relevantDocs = vectorStore.similaritySearch(request);
@@ -41,9 +41,10 @@ public class RagService {
 				
 				問題:{question}
 				
+				上下文沒有提供的資料統一回答不知道
 				請排除任何有"但是"的回覆
 				回答時請刪除有"根據上下文"字眼的內容
-				全部回答後請統一印出資料來源{source}的字樣
+				全部回答後請統一印出加上資料來源是{source}的字樣
 				答案:
 				""");
 		
